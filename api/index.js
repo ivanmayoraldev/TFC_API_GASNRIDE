@@ -1,8 +1,8 @@
-import companiasRoutes from '../rutas/companias';
-import gasolinerasRoutes from '../rutas/gasolineras';
-import municipiosRoutes from '../rutas/municipios'
-import puntosInteresRoutes from '../rutas/puntos_interes'
-import usuariosRoutes from '../rutas/usuarios'
+import companiasRoutes from '../rutas/companias.js';
+import gasolinerasRoutes from '../rutas/gasolineras.js';
+import municipiosRoutes from '../rutas/municipios.js';
+import puntosInteresRoutes from '../rutas/puntos_interes.js';
+import usuariosRoutes from '../rutas/usuarios.js';
 
 const express = require("express");
 const cors = require("cors");
