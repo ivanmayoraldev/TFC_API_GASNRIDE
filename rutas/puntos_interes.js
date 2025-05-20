@@ -1,4 +1,4 @@
-const express = require('express');
+import express from 'express';
 
 const routes = (db) => {
   const router = express.Router();
