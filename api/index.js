@@ -4,11 +4,14 @@ import municipiosRoutes from '../rutas/municipios.js';
 import puntosInteresRoutes from '../rutas/puntos_interes.js';
 import usuariosRoutes from '../rutas/usuarios.js';
 
-const express = require("express");
-const cors = require("cors");
-const bodyParser = require("body-parser");
-
+import express from 'express';
+import cors from 'cors';
+import bodyParser from 'body-parser';
+import dotenv from 'dotenv';
+import admin from 'firebase-admin';
+import path from 'path';
 dotenv.config();
+
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
