@@ -1,6 +1,6 @@
 const express = require('express');
 
-module.exports = (db) => {
+const routes = (db) => {
   const router = express.Router();
   const ref = db.collection('gasolineras');
 
@@ -11,9 +11,11 @@ module.exports = (db) => {
       if (req.query.idgasolinera) {
         query = query.where('idgasolinera', '==', parseInt(req.query.idgasolinera));
       }
+
       if (req.query.idMunicipioFK) {
         query = query.where('idMunicipioFK', '==', parseInt(req.query.idMunicipioFK));
       }
+
       if (req.query.idCompaniaFK) {
         query = query.where('idCompaniaFK', '==', parseInt(req.query.idCompaniaFK));
       }
@@ -38,3 +40,5 @@ module.exports = (db) => {
 
   return router;
 };
+
+export default routes;

@@ -1,6 +1,6 @@
 const express = require('express');
 
-module.exports = (db) => {
+const routes = (db) => {
   const router = express.Router();
   const ref = db.collection('usuarios'); // Coleccion de FireStore
 
@@ -16,3 +16,5 @@ module.exports = (db) => {
 
   return router;
 };
+
+export default routes;
