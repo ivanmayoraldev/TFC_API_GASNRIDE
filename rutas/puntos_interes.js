@@ -2,26 +2,38 @@ import express from 'express';
 
 const routes = (db) => {
   const router = express.Router();
-  const ref = db.collection('municipios');
+  const ref = db.collection('puntos_interes');
 
   router.get('/', async (req, res) => {
     try {
       let query = ref;
 
-      if (req.query.idmunicipio) {
-        query = query.where('idmunicipio', '==', parseInt(req.query.idmunicipio));
+      if (req.query.idpunto_interes) {
+        query = query.where('idpunto_interes', '==', parseInt(req.query.idpunto_interes));
+      }
+
+      if (req.query.idmunicipio_fk) {
+        query = query.where('idmunicipio_fk', '==', parseInt(idmunicipio_fk));
       }
 
       if (req.query.nombre) {
         query = query.where('nombre', '==', req.query.nombre);
       }
 
-      if (req.query.codigo_Territorial) {
-        query = query.where('codigo_Territorial', '==', req.query.codigo_Territorial);
+      if (req.query.tipo) {
+        query = query.where('tipo', '==', req.query.tipo);
       }
 
-      if (req.query.num_gasolineras) {
-        query = query.where('num_gasolineras', '==', parseInt(req.query.num_gasolineras));
+      if (req.query.descripcion) {
+        query = query.where('descripcion', '==', req.query.descripcion);
+      }
+
+      if (req.query.url_imagen_poi) {
+        query = query.where('url_imagen_poi', '==', req.query.url_imagen_poi);
+      }
+
+      if (req.query.url_poi) {
+        query = query.where('url_poi', '==', req.query.url_poi);
       }
 
       const snapshot = await query.get();
@@ -30,7 +42,7 @@ const routes = (db) => {
       res.json(datos);
     } catch (err) {
       console.error(err);
-      res.status(500).json({ error: 'Error al obtener municipios' });
+      res.status(500).json({ error: 'Error al obtener puntos de interes' });
     }
   });
 
